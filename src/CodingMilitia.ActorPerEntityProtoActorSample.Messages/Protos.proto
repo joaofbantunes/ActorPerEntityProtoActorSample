@@ -1,0 +1,12 @@
+syntax = "proto3";
+package messages;
+option csharp_namespace = "CodingMilitia.ActorPerEntityProtoActorSample.Messages";
+
+message DoActionRequest {}
+message DoAnotherActionRequest {}
+message QueryExecutedActionsRequest {}
+message QueryExecutedActionsResponse {
+    int32 ActionCount=1;
+    int32 AnotherActionCount=2;
+    string ServerId=3;
+}
