@@ -25,13 +25,13 @@ namespace CodingMilitia.ActorPerEntityProtoActorSample.Server.Actors
                     Console.WriteLine($"Actor \"{context.Self.Id}\" timedout.");
                     context.Self.Stop();
                     break;
-                case DoActionRequest doIt:
+                case DoActionRequest _:
                     ++_actionCounter;
                     break;
-                case DoAnotherActionRequest doTheOther:
+                case DoAnotherActionRequest _:
                     ++_anotherActionCounter;
                     break;
-                case QueryExecutedActionsRequest query:
+                case QueryExecutedActionsRequest _:
                     context.Respond(new QueryExecutedActionsResponse
                     {
                         ActionCount = _actionCounter,
