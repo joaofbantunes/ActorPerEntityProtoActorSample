@@ -19,11 +19,11 @@ namespace CodingMilitia.ActorPerEntityProtoActorSample.Server.Actors
             {
                 case Started _:
                     Console.WriteLine($"Actor \"{context.Self.Id}\" started.");
-                    //context.SetReceiveTimeout(TimeSpan.FromSeconds(1));
+                    context.SetReceiveTimeout(TimeSpan.FromSeconds(5));
                     break;
                 case ReceiveTimeout _:
                     Console.WriteLine($"Actor \"{context.Self.Id}\" timedout.");
-                    //TODO: is there a way to terminate the actor execution after timeout?
+                    context.Self.Stop();
                     break;
                 case DoActionRequest doIt:
                     ++_actionCounter;
